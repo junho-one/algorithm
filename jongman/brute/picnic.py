@@ -1,3 +1,5 @@
+# 종만북
+
 N = int(input())
 
 def isDuplicate(pairs) :

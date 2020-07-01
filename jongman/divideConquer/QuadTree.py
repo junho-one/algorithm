@@ -1,3 +1,5 @@
+# 그냥 해본거
+
 import sys
 
 def makeQT(i,j,size) :

@@ -1,5 +1,6 @@
-import sys
+#백준 1074 : Z
 
+import sys
 
 # N개
 N, r, c = map(int, sys.stdin.readline().rstrip().split(" "))

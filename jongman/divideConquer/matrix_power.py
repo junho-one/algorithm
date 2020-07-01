@@ -1,3 +1,5 @@
+# 종만북 문제
+
 import sys
 
 N, B = map(int, sys.stdin.readline().rstrip().split(" "))

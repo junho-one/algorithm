@@ -1,3 +1,5 @@
+# 종만북 문제
+
 import sys
 
 N = int(sys.stdin.readline().rstrip())
