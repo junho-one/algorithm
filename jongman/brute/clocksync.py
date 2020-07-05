@@ -2,6 +2,8 @@
 
 import sys
 
+sys.setrecursionlimit(10**6)
+
 # 1개
 N = int(sys.stdin.readline().rstrip())
 
@@ -42,15 +44,16 @@ def syncClock(now) :
 
     ret = float('inf')
 
-    # for i in range(0,4) :
-    #     push_switch(now, i)
-    #     ret = min(ret, i + syncClock(now+1))
-    #     return_switch(now,i)
-
-
     for i in range(0,4) :
-        ret = min(ret, 1 + syncClock(now+1))
-        push_switch(now, 1)
+        push_switch(now, i)
+        ret = min(ret, i + syncClock(now+1))
+        # 모든 재귀에서 하나의 clocks를 공유하기 때문에 return_swtich로 시계를 되돌려줘야 모든 상황을 고려할 수 있다.
+        return_switch(now,i)
+
+
+    # for i in range(0,4) :
+    #     ret = min(ret, 1 + syncClock(now+1))
+    #     push_switch(now, 1)
         # return_switch(now,i)
 
 
@@ -62,8 +65,12 @@ for _ in range(N) :
     clocks = [ i//3 % 4 for i in clocks ]
 
     # print(clocks)
-    print(syncClock(0))
+    ans = syncClock(0)
 
+    if ans == float('inf') :
+        print('-1')
+    else :
+        print(ans)
 
 # 1
 # 12 6 6 6 6 6 12 12 12 12 12 12 12 12 12 12

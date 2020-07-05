@@ -49,8 +49,6 @@ def calculate_level(S) :
 
 def pi(start) :
 
-    # if N- start <= 2 :
-    #     return 0
     if N == start :
         return 0
 
@@ -64,7 +62,6 @@ def pi(start) :
     for i in range(3,6) :
         if start + i <= N :
             ret = min(ret, pi(start+i) + calculate_level(nums[start:start+i]))
-
 
     dp[start] = ret
 
