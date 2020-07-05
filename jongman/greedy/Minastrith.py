@@ -12,4 +12,3 @@ for _ in range(T) :
         y, x, r = map(int, sys.stdin.readline().rstrip().split(" "))
         check_points.append((y,x,r))
 
-    
