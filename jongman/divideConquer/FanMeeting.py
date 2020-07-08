@@ -1,4 +1,5 @@
 # karatsu로 개선해야함
+# 비트연산자 AND와 shift를 써서 푸는 방법도 있다. 긴문자열을 >> 로 줄여나가면서 하면 시간 안에 통과 가능 ( 제한시간 15초 )
 
 import sys
 
@@ -35,4 +36,5 @@ for _ in range(N) :
             ans += 1
 
     print(ans)
+
 
