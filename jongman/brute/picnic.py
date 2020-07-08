@@ -2,36 +2,6 @@
 
 N = int(input())
 
-def isDuplicate(pairs) :
-
-    pair_list = sum(pairs, [])
-    pair_set = set(pair_list)
-
-    if len(pair_list) != len(pair_set) :
-        return True
-
-    else :
-        return False
-
-
-def makePair(count, pair_list, max_pair, max_num) :
-    global AA
-
-    if isDuplicate(pair_list) :
-        return False
-
-    if len(pair_list) ==  max_pair :
-        AA += 1
-        return True
-
-    if count >= max_num :
-        return False
-
-
-    makePair(count + 1, pair_list, max_pair, max_num)
-    pair_list.append(pairs[count])
-    makePair(count + 1, pair_list, max_pair, max_num)
-    pair_list.pop()
 
 def pairing( finished ) :
 
