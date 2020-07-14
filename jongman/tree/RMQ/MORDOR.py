@@ -1,10 +1,12 @@
+# 시간 초과 에러남.. 책에 있는 코드 변환한건데..
+
 class RMQ :
 
     def __init__(self, array):
         self.N = len(array)
-        self.rangeMin = [None for _ in range(4*N)]
+        self.rangeMin = [None for _ in range(4*self.N)]
         self.array = array
-        self.makeTree(0, N-1, 1)
+        self.makeTree(0, self.N-1, 1)
 
     def makeTree(self, left, right, node):
         if left == right :
