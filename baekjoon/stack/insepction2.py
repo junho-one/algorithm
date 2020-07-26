@@ -1,5 +1,5 @@
 # 백준 검열, 3111번
-# 시간초과. 너무 어렵네
+# 너무 어렵네
 
 import sys
 from collections import deque
@@ -25,11 +25,11 @@ while frontIdx <= backIdx :
         front.append(T[frontIdx])
         frontIdx += 1
         if front[-len_A:] == A :
-            # front = front[:-len_A]
             front[-len_A:] = []
+            # front = front[:-len_A] # 주의점 : 이 코드를 사용하면 시간초과가 난다.
             # 위 두 명령어의 시간 차이는 엄청나다.
-            # 밑에 있는 명령어는 len_A만큼 걸리는거 같은데
-            # 위에 있는 명령어는 아마 front-len_A 만큼 걸리기에 front가 커지면 엄청난 시간이 걸리는 듯듯
+            # 위에 있는 명령어는 len_A만큼 걸리는거 같은데
+            # 밑에 있는 명령어는 아마 front-len_A 만큼 걸리기에 front가 커지면 엄청난 시간이 걸리는 듯
             flag = False
 
     else :
