@@ -16,7 +16,6 @@ for _ in range(T) :
 
     N, a, b = map(int, sys.stdin.readline().rstrip().split(" "))
 
-
     minHeap = []
     minSize = 0
     maxHeap = []

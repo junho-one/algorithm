@@ -11,8 +11,7 @@ class Node :
     def isIn(self, node):
 
         distance = math.sqrt( (self.x - node.x)**2 + (self.y - node.y)**2 )
-        # print(node.x, node.y, self.x, self.y)
-        # print(distance, self.r)
+
         if distance < node.r :
             return True
         else :
@@ -31,16 +30,16 @@ class Tree :
 
     def add(self, node) :
         if self.root :
-            self.go(self.root, node)
+            self.add_rec(self.root, node)
         else :
             self.root = node
 
 
-    def go(self, root, node):
+    def add_rec(self, root, node):
 
         for child in root.child :
             if node.isIn(child) :
-                self.go(child, node)
+                self.add_rec(child, node)
                 return True
 
         root.addChild(node)
