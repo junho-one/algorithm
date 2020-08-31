@@ -5,16 +5,21 @@ def solution(distance, rocks, n):
 
     rocks = [0] + sorted(rocks) + [distance]
     heap = []
-    distances = []
     for i in range(1, len(rocks)) :
-        heapq.heappush(heap, rocks[i] - rocks[i-1])
-        distances.append(rocks[i] - rocks[i-1])
+        heap.append( (rocks[i] - rocks[i-1], i-1, i))
     print(heap)
-    print(distances)
+    heapq.heapify(heap)
+    print(heap)
+
+    deleted = set()
+
     for _ in range(n) :
-        d1 = heapq.heappop(heap)
-        d2 = heapq.heappop(heap)
-        heapq.heappush(heap, d1+d2)
+
+        dist, left, right = heapq.heappop(heap)
+
+
+        if (left, right) not in deleted :
+
 
     return heapq.heappop(heap)
 
