@@ -3,14 +3,10 @@ from collections import defaultdict
 
 sys.setrecursionlimit(10**6)
 
-
 # here를 root로 하는 tree에서 발견된 역방향 간선으로 이어진 정점 중 가장 상위 정점의 order 반환
-def dfs(here, isRoot):
-    global cnt
+def dfs(here, cnt):
     order[here] = cnt
-    cnt += 1
 
-    # 루트를 위한 값, 루트일 때는 children 수에 영향을 받는다.
     children = 0
     ret = order[here]
 
@@ -21,18 +17,18 @@ def dfs(here, isRoot):
 
         else :
             children += 1
-            subtree = dfs(next, False)
+            subtree = dfs(next, cnt+1)
 
             # subtree에서 here보다 선조로가는 역방향 간선이 없다는 것은
             # subtree에서 갈 수 있는 vertex들의 order이 모두 부모 order 이하라는 것
             # here보다 낮은 값으로 갈 수 있어야 선조와 서브트리가 이어진 것이니까
-            if not isRoot and subtree >= order[here] :
+            if cnt != 1 and subtree >= order[here] :
                 cutVertex.add(here)
 
             # 현재 here에서 만들어진 서브트리들 중에서 가장 위로 올라갈 수 있는 수를 찾는 것
             ret = min(subtree, ret)
 
-    if isRoot and children >= 2 :
+    if cnt == 1 and children >= 2 :
         cutVertex.add(here)
 
     return ret
@@ -56,7 +52,7 @@ cnt = 1
 
 for vertex in candidates :
     if not order[vertex] :
-        dfs(vertex, True)
+        dfs(vertex, 1)
 
 print(len(cutVertex))
 
