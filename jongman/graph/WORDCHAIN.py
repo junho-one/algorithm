@@ -2,11 +2,9 @@ import sys
 import copy
 
 def dfs(vertex, word) :
-    # print(vertex, graph[vertex])
 
     while graph[vertex] :
         next_vertex, next_word = graph[vertex].pop()
-        # print(next_vertex, next_word)
         dfs(next_vertex, next_word)
 
     answer.append(word)
