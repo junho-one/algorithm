@@ -1,10 +1,3 @@
-class Node :
-    def __init__(self, val,left,right):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
 class Tree :
     def __init__(self, pre_list, ins_list):
         self.pres_list = pre_list
